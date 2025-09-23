@@ -23,8 +23,15 @@ class User extends Authenticatable
         'password',
         'google_id',
         'avatar',
+        'role',
     ];
 
+    public function isManager(){
+        return $this->role === 'manager'||$this->role === 'admin';
+    }
+    public function isAdmin(){
+        return $this->role === 'admin';
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
